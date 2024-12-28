@@ -21,8 +21,15 @@ class MeterRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('units')
+                Forms\Components\Select::make('customer_id')
+                    ->relationship('customer', 'name')
+                    ->searchable()
+                    ->label("اسم المشترك")
+                    ->required(),
+                Forms\Components\TextInput::make('ip_address')
+                    ->label("عنوان الشبكة الخاص بالعداد")
                     ->required()
+                    ->unique()
                     ->maxLength(255),
             ]);
     }
@@ -32,7 +39,15 @@ class MeterRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('units')
             ->columns([
-                Tables\Columns\TextColumn::make('units'),
+                Tables\Columns\TextColumn::make('ip_address')
+                    ->label("عنوان الشبكة المحلي")
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('last_reading_date')
+                    ->label("تاريخ اقدم قراءة للعداد"),
+                Tables\Columns\TextColumn::make('newest_reading_date')
+                    ->label("تاريخ احدث قراءة للعداد"),
+                Tables\Columns\TextColumn::make('units')
+                    ->label("عدد الوحدات المقروءة"),
             ])
             ->filters([
                 //

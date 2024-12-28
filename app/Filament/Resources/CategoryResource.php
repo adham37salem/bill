@@ -32,8 +32,12 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label("نوع الحساب")
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->required()
+                    ->label("وصف الحساب"),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
             ]);
@@ -44,6 +48,10 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label("نوع الحساب")
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('description')
+                    ->label("وصف الحساب")
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

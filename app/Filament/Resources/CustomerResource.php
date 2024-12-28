@@ -50,6 +50,7 @@ class CustomerResource extends Resource
                     ->required(),
                 Forms\Components\Select::make("category_id")
                     ->relationship(name: "category", titleAttribute: "name")
+                    ->label("نوع الحساب")
                     ->createOptionForm([
                         Forms\Components\TextInput::make("name")
                             ->required()
@@ -74,10 +75,13 @@ class CustomerResource extends Resource
                 Tables\Columns\TextColumn::make("email")
                     ->label("البريد الإيكتروني")
                     ->searchable(),
+                Tables\Columns\TextColumn::make("category.name")
+                    ->label("نوع الحساب")
+                    ->color("primary")
+                    ->sortable(),
                 Tables\Columns\TextColumn::make("mobile_no")
                     ->label("رقم الهاتف")
                     ->searchable(),
-
 
             ])
             ->filters([
