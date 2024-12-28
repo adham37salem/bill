@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->string('ip_address');
             $table->date('last_reading_date');
             $table->date('newest_reading_date');
-            $table->bigInteger('units');
+            $table->bigInteger('units')->default(0);
             $table->timestamps();
         });
     }
