@@ -34,10 +34,10 @@ class CategoryResource extends Resource
                     ->label("نوع الحساب")
                     ->required()
                     ->maxLength(255),
+
                 Forms\Components\Textarea::make('description')
                     ->required()
-                    ->label("وصف الحساب"),
-                Forms\Components\Textarea::make('description')
+                    ->label("وصف الحساب")
                     ->columnSpanFull(),
             ]);
     }
