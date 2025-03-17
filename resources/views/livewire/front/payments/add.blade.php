@@ -37,7 +37,7 @@
                             </div>
                             <div class="flex flex-col space-y-4">
                                 <label>الرقم المميز (CSV)</label>
-                                <input type="text" class="w-[540px] border border-gray-300 p-1 rounded-md focus:outline-none">
+                                <input type="text" class="w-[206px] border border-gray-300 p-1 rounded-md focus:outline-none">
                             </div>
                         </div>
                         <x-primary-button type="submit" class="bg-[#32CD32] hover:bg-green-700 transition-all text-white mt-4">
