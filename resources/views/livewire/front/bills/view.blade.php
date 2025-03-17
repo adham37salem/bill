@@ -1,0 +1,90 @@
+<div>
+    <h1 class="text-center my-8 text-[#444444] text-4xl">
+        الفواتير السابقة
+    </h1>
+
+
+    <div class="overflow-x-auto my-8 w-[1530px] flex justify-center">
+        <table class="h-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+            <thead class="text-xs text-white uppercase bg-gray-50 ">
+            <tr class="bg-[#1D4EA3] text-center">
+                <th scope="col" class="p-4  text-[16px]">
+                    رقم الفاتورة
+                </th>
+                <th scope="col" class="p-4 w-[288px] text-[16px]">
+                    اسم العميل
+                </th>
+                <th scope="col" class="p-4 w-[288px] text-[16px]">
+                    تاريخها
+                </th>
+                <th scope="col" class="p-4  text-[16px]">
+                    المبلغ المطلوب
+                </th>
+                <th scope="col" class="p-4  text-[16px]">
+                    حالة الفاتورة
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="bg-white border-b border-gray-200 text-center">
+                <th scope="row" class="px-6 py-4 text-[#9DA9B9] font-medium  whitespace-nowrap ">
+                    566489797979
+                </th>
+                <td class="px-6 py-4 text-[#9DA9B9]">
+                    محمد صلاح
+                </td>
+                <td class="px-6 py-4 text-[#9DA9B9]">
+                    10-10-2025
+                </td>
+                <td class="px-6 py-4 text-[#9DA9B9]">
+                    500000
+                </td>
+                <td class="px-6 py-4">
+                    <x-primary-button type="button" class="bg-[#55CE70] hover:bg-green-400 text-white">
+                        مدفوعة
+                    </x-primary-button>
+                </td>
+            </tr>
+            <tr class="bg-white border-b border-gray-200 text-center">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    566489797979
+                </th>
+                <td class="px-6 py-4">
+                    محمد صلاح
+                </td>
+                <td class="px-6 py-4">
+                    10-10-2025
+                </td>
+                <td class="px-6 py-4">
+                    500000
+                </td>
+                <td class="px-6 py-4 text-center">
+                    <x-primary-button type="button" class="bg-[#55CE70] hover:bg-green-400 text-white">
+                        مدفوعة
+                    </x-primary-button>
+                </td>
+            </tr>
+            <tr class="bg-white border-b border-gray-200 text-center">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    566489797979
+                </th>
+                <td class="px-6 py-4">
+                    محمد صلاح
+                </td>
+                <td class="px-6 py-4">
+                    10-10-2025
+                </td>
+                <td class="px-6 py-4">
+                    500000
+                </td>
+                <td class="px-6 py-4">
+                    <x-primary-button type="button" class="bg-[#55CE70] hover:bg-green-400 text-white">
+                        مدفوعة
+                    </x-primary-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
