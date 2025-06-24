@@ -4,6 +4,7 @@ use App\Livewire\Front\Bills\ViewOld;
 use App\Livewire\Front\Home;
 use App\Livewire\Front\Login;
 use App\Livewire\Front\Payments\Add;
+use App\Livewire\Front\Profile\Show;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('welcome');
@@ -16,4 +17,8 @@ Route::group(["prefix" => "bills"], function () {
 });
 Route::group(["prefix" => "payments"], function () {
     Route::get("add-payment", Add::class)->name('payments.add');
+});
+
+Route::group(["prefix" => "profile"], function () {
+    Route::get("show", Show::class)->name('profile.show');
 });

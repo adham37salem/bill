@@ -11,7 +11,7 @@
 <body class="rtl:*"  lang="ar">
 <!-- Header -->
 <header class=" bg-transparent text-[#4154F1] h-[75px]">
-    <div class="container mx-auto p-4 flex justify-between items-center">
+    <div class="container mx-auto p-4 flex justify-between items-center border border-gray-200 shadow-sm">
         <h1 class="text-[30px] font-bold">فاتورتي</h1>
         <nav>
             <ul class="flex space-x-6 text-[#4154F1] text-[16px] hover:transition-all">
