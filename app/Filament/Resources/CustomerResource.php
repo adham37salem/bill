@@ -22,7 +22,11 @@ class CustomerResource extends Resource
     protected static ?string $label = "المشتركين";
     protected static ?string $navigationLabel = "المشتركين";
     protected static ?string $pluralLabel = "المشتركين";
-    protected static ?string $navigationGroup = "المستخدمين";
+    protected static ?string $navigationGroup = "قسم ادارة التحصيل";
+    public static function getNavigationBadge(): ?string
+    {
+        return true;
+    }
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
@@ -43,7 +47,20 @@ class CustomerResource extends Resource
                 Forms\Components\TextInput::make("mobile_no")
                     ->label("رقم جوال المشترك")
                     ->prefix("+967")
-                    ->required()
+                    ->required(),
+                Forms\Components\Select::make("category_id")
+                    ->relationship(name: "category", titleAttribute: "name")
+                    ->label("نوع الحساب")
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make("name")
+                            ->required()
+                            ->maxLength(255)
+                            ->label("نوع الحساب"),
+                        Forms\Components\Textarea::make("description")
+                            ->required()
+                            ->maxLength(255)
+                            ->label("وسف الحساب"),
+                    ])
             ]);
     }
 
@@ -58,10 +75,13 @@ class CustomerResource extends Resource
                 Tables\Columns\TextColumn::make("email")
                     ->label("البريد الإيكتروني")
                     ->searchable(),
+                Tables\Columns\TextColumn::make("category.name")
+                    ->label("نوع الحساب")
+                    ->color("primary")
+                    ->sortable(),
                 Tables\Columns\TextColumn::make("mobile_no")
                     ->label("رقم الهاتف")
                     ->searchable(),
-
 
             ])
             ->filters([
@@ -81,9 +101,13 @@ class CustomerResource extends Resource
     public static function getRelations(): array
     {
         return [
+            RelationGroup::make("العداد", [
+                RelationManagers\MeterRelationManager::class
+            ]),
             RelationGroup::make("العنوان", [
                 RelationManagers\AddressRelationManager::class,
             ]),
+
         ];
     }
 

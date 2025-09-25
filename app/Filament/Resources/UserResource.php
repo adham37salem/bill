@@ -18,8 +18,12 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
     protected static ?string $label = "المستخدمين";
     protected static ?string $pluralLabel = "المستخدمين";
-    protected static ?string $navigationGroup = "المستخدمين";
+    protected static ?string $navigationGroup = "قسم إدارة النظام";
     protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
+    public static function getNavigationBadge(): ?string
+    {
+        return true;
+    }
 
     public static function form(Form $form): Form
     {

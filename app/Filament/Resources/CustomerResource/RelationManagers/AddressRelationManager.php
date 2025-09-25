@@ -7,6 +7,7 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -17,26 +18,35 @@ class AddressRelationManager extends RelationManager
     protected static ?string $label = "العنوان";
     protected static ?string $title = "العنوان" ;
 
+
     public function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Select::make('customer_id')
                     ->relationship('customer', 'name')
+                    ->searchable()
+                    ->label("اسم المشترك")
                     ->required(),
                 Forms\Components\TextInput::make('district')
+                    ->label("مديرية")
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('branch')
                     ->required()
+                    ->label("فرع")
                     ->maxLength(255),
                 Forms\Components\TextInput::make('street')
                     ->required()
+                    ->label("شارع")
                     ->maxLength(255),
                 Forms\Components\Textarea::make('address_line_1')
                     ->required()
+                    ->label("العنوان")
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('level')
+                    ->label("رقم الطابق")
+                    ->numeric()
                     ->required()
                     ->maxLength(255),
             ]);
@@ -48,11 +58,14 @@ class AddressRelationManager extends RelationManager
             ->recordTitleAttribute('district')
             ->columns([
                 Tables\Columns\TextColumn::make('customer.name')
+                    ->label("اسم المشترك")
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('district')
+                    ->label("مديرية")
                     ->searchable(),
                 Tables\Columns\TextColumn::make('branch')
+                    ->label("فرع")
             ])
             ->filters([
                 //
